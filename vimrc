@@ -1,3 +1,6 @@
+" Use the space key as our leader.
+let mapleader = "\<Space>"
+
 ""
 "" Janus setup
 ""
@@ -31,11 +34,12 @@ endif
 
 " Additional Plugins
 call plug#begin()
-Plug 'https://github.com/mattn/emmet-vim.git'
-Plug 'https://github.com/tpope/vim-rails.git'
-Plug 'https://github.com/vim-ruby/vim-ruby.git'
-Plug 'https://github.com/thoughtbot/vim-rspec.git'
-Plug 'https://github.com/ap/vim-css-color.git'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
+Plug 'thoughtbot/vim-rspec'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 " Customize keys for plugins
@@ -45,6 +49,12 @@ let g:rspec_runner = "os_x_iterm2"
 exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
 
 " Custom mappings
+
+" RSpec.vim mappings
+map <Leader>ss :call RunCurrentSpecFile()<CR>
+map <Leader>ns :call RunNearestSpec()<CR>
+map <Leader>ls :call RunLastSpec()<CR>
+map <Leader>as :call RunAllSpecs()<CR>
 
 " Normal mode
 nmap <C-s> <esc>:w<CR>
