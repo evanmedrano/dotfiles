@@ -13,7 +13,7 @@ endif
 
 "Customizations
 
-set guifont=Hack:h14
+set guifont=Hack:h16
 
 colorscheme Tesla
 
