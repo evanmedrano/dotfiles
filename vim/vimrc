@@ -37,11 +37,21 @@ Plug 'https://github.com/thoughtbot/vim-rspec.git'
 Plug 'https://github.com/ap/vim-css-color.git'
 call plug#end()
 
-"Customize keys for plugins
+" Customize keys for plugins
 let g:user_emmet_leader_key = ','
 let g:rspec_runner = "os_x_iterm2"
 " Disable plugins prior to loading pathogen
 exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
+
+" Custom mappings
+
+" Normal mode
+nmap 0 ^
+
+" Insert mode
+imap <C-s> <esc>:w<CR>
+imap jk <esc>
+imap kj <esc>
 
 ""
 "" Pathogen setup
