@@ -32,23 +32,70 @@ if filereadable(expand("~/.vimrc.before"))
   source ~/.vimrc.before
 endif
 
+" ==========================================================
 " Additional Plugins
+" ==========================================================
 call plug#begin()
+
+" ======================================
+" HTML/CSS plugins
+" ======================================
+" HTML abbreviation expander
 Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
-Plug 'thoughtbot/vim-rspec'
+" HTML5 syntax
+Plug 'othree/html5.vim'
+" SCSS syntax
+Plug 'cakebaker/scss-syntax.vim'
+" Color highlighter
 Plug 'ap/vim-css-color'
+
+" ======================================
+" Ruby/Rails plugins
+" ======================================
+" Ruby support
+Plug 'vim-ruby/vim-ruby'
+" Rails support
+Plug 'tpope/vim-rails'
+" RSpec testing shortcuts
+Plug 'thoughtbot/vim-rspec'
+
+" =====================================
+" Ember JS plugins
+" =====================================
+" Handlebars
+Plug 'mustache/vim-mustache-handlebars'
+
+" =====================================
+" Misc plugins
+" =====================================
+" Global replace throughout all files
+Plug 'skwp/greplace.vim'
+" Surround (cs"')
+Plug 'tpope/vim-surround'
+" Run background jobs asynchronously
+Plug 'tpope/vim-dispatch'
+" Adds end automatically to def,if,do,etc
+Plug 'tpope/vim-endwise'
+
 call plug#end()
 
+" =====================================
 " Customize keys for plugins
+" =====================================
+" Sets emmet to trigger with two consecutive ,'s
 let g:user_emmet_leader_key = ','
+" Sets the default terminal for tests to iTerm2
 let g:rspec_runner = "os_x_iterm2"
+" Allows mustache abbreviations
+let g:mustache_abbreviations = 1
+
+
 " Disable plugins prior to loading pathogen
 exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
 
+" =======================================================
 " Custom mappings
+" =======================================================
 
 " RSpec.vim mappings
 map <Leader>ss :call RunCurrentSpecFile()<CR>
@@ -77,6 +124,26 @@ command! QA qall
 command! E e
 command! W w
 command! Wq wq
+
+" ========================================================
+" Ruby stuff
+" ========================================================
+syntax on
+
+augroup myfiletypes
+  " Clear old autocmds in group
+  autocmd!
+
+  " autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml setlocal path+=lib
+  autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
+
+  " Make ?s part of words
+  autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+
+augroup END
+
 
 ""
 "" Pathogen setup
