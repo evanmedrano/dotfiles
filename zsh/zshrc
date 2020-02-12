@@ -103,6 +103,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 source /Users/evanmedrano/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Enables ctrl + s to work in vim
+stty -ixon -ixoff
+
 # Move next only if `homebrew` is installed
 if command -v brew >/dev/null 2>&1; then
 	# Load rupa's z if installed
@@ -110,3 +113,4 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
+
