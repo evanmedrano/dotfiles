@@ -153,6 +153,8 @@ augroup END
 " ========================================================
 " Test running stuff
 " ========================================================
+let g:rspec_command = "!clear && bin/rspec {spec}"
+
 function! OpenFactoryFile()
   if filereadable("test/factories.rb")
     execute ":sp test/factories.rb"
@@ -173,7 +175,10 @@ set showcmd
 set relativenumber
 " always display the status line
 set laststatus=2
+set autoindent
+
 colorscheme jellybeans
+
 ""
 "" Pathogen setup
 ""
