@@ -76,6 +76,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 " Adds end automatically to def,if,do,etc
 Plug 'tpope/vim-endwise'
+" Disable arrow keys and shows how often I try to use them
+Plug 'mrmargolis/dogmatic.vim'
 
 call plug#end()
 
@@ -176,17 +178,6 @@ set relativenumber
 " always display the status line
 set laststatus=2
 set autoindent
-
-" Remove newbie crutches
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-noremap <Up> <Nop>
-
-noremap! <Down> <Nop>
-noremap! <Left> <Nop>
-noremap! <Right> <Nop>
-noremap! <Up> <Nop>
 
 colorscheme jellybeans
 
