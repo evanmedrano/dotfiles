@@ -177,6 +177,17 @@ set relativenumber
 set laststatus=2
 set autoindent
 
+" Remove newbie crutches
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+
+noremap! <Down> <Nop>
+noremap! <Left> <Nop>
+noremap! <Right> <Nop>
+noremap! <Up> <Nop>
+
 colorscheme jellybeans
 
 ""
