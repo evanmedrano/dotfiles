@@ -78,6 +78,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 " Disable arrow keys and shows how often I try to use them
 Plug 'mrmargolis/dogmatic.vim'
+" Vim and tmux navigation
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -114,11 +116,13 @@ map <Leader>ff :call OpenFactoryFile()<CR>
 nmap <C-s> <esc>:w<CR>
 nmap <C-t> <esc>:tabnew<CR>
 nmap <C-x> <C-w>c
-nmap <C-h> :nohl<cr>
 
 nmap 0 ^
 nmap k gk
 nmap j gj
+
+nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
 
 " Insert mode
 imap <C-s> <esc>:w<CR>
@@ -132,6 +136,15 @@ command! QA qall
 command! E e
 command! W w
 command! Wq wq
+
+" Mappings to help with Vim window resizing
+
+" Automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" Zoom a Vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 " ========================================================
 " Ruby stuff
@@ -178,6 +191,7 @@ set relativenumber
 " always display the status line
 set laststatus=2
 set autoindent
+set scrolloff=4
 
 colorscheme jellybeans
 
