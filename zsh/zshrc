@@ -112,6 +112,17 @@ if command -v brew >/dev/null 2>&1; then
 	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
 
+# Ensures I'm always running tmux within the shell
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+ensure_tmux_is_running() {
+    if _not_inside_tmux; then
+          tat
+            fi
+          }
+
+          ensure_tmux_is_running
+
 export PATH="$HOME/code/dotfiles/bin:$PATH"
 
 
