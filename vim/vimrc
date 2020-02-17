@@ -56,6 +56,16 @@ Plug 'ap/vim-css-color', { 'for': ['css', 'sass', 'scss'] }
 Plug 'vim-ruby/vim-ruby'
 " Rails support
 Plug 'tpope/vim-rails'
+" Configures path and tags settings to include all libraries in Gemfile
+Plug 'tpope/vim-bundler'
+" Configures path to include lib and ext directories
+Plug 'tpope/vim-rake'
+" Configures git superpowers
+Plug 'tpope/vim-fugitive'
+" Quick navigation
+Plug 'tpope/vim-unimpaired'
+" Index Ruby standard lib with ctags
+Plug 'tpope/rbenv-ctags'
 " RSpec testing shortcuts
 Plug 'thoughtbot/vim-rspec'
 
@@ -92,7 +102,6 @@ let g:user_emmet_leader_key = ','
 let g:rspec_runner = "os_x_iterm2"
 " Allows mustache abbreviations
 let g:mustache_abbreviations = 1
-
 
 " Disable plugins prior to loading pathogen
 exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
@@ -192,6 +201,8 @@ set relativenumber
 set laststatus=2
 set autoindent
 set scrolloff=4
+" Allows more dynamic matching
+runtime macros/matchit.vim
 
 colorscheme jellybeans
 
