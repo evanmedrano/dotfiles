@@ -90,6 +90,10 @@ Plug 'tpope/vim-endwise'
 Plug 'mrmargolis/dogmatic.vim'
 " Vim and tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
+" Vim status bar
+Plug 'vim-airline/vim-airline'
+" Vim airline themes
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -107,7 +111,7 @@ let g:mustache_abbreviations = 1
 exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
 
 " =======================================================
-" Custom mappings
+" Custom mapping
 " =======================================================
 
 " RSpec.vim mappings
@@ -199,24 +203,32 @@ set showcmd
 set relativenumber
 " always display the status line
 set laststatus=2
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#CursorColumn#
-set statusline+=\ %f
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
 
-set autoindent
 set scrolloff=4
 " Allows more dynamic matching
 runtime macros/matchit.vim
 
 colorscheme jellybeans
+
+" =======================================================
+" Vim airline settings
+" =======================================================
+let g:airline_theme='jellybeans'
+let g:airline_powerline_fonts=1
+
+" air-line
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " =======================================================
 " Status line functions
