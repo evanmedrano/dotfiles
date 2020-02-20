@@ -8,7 +8,7 @@ export ZSH="/Users/evanmedrano/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,6 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Git flow aliases
+alias gfi="git flow init"
+alias gfs="git flow feature start"
+alias gff="git flow feature finish"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -122,6 +127,14 @@ ensure_tmux_is_running() {
 }
 
 ensure_tmux_is_running
+
+# Hides user@hostname info when I'm logged in
+prompt_context(){}
+
+# Dir: current working directory
+prompt_dir() {
+  prompt_segment blue black '%c'
+}
 
 export PATH="$HOME/code/dotfiles/bin:$PATH"
 
