@@ -136,6 +136,7 @@ nmap j gj
 
 nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>hl <esc>:nohls<CR>
 
 " Insert mode
 imap <C-s> <esc>:w<CR>
@@ -213,7 +214,8 @@ colorscheme jellybeans
 " =======================================================
 " Vim airline settings
 " =======================================================
-let g:airline_theme='jellybeans'
+let g:airline_theme='bubblegum'
+
 let g:airline_powerline_fonts=1
 
 " air-line
@@ -223,9 +225,9 @@ endif
 
 " airline symbols
 let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
+let g:airline_left_alt_sep = '>'
 let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline_right_alt_sep = '<'
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''

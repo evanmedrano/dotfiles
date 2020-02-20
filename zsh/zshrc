@@ -116,12 +116,12 @@ fi
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
 ensure_tmux_is_running() {
-    if _not_inside_tmux; then
-          tat
-            fi
-          }
+  if _not_inside_tmux; then
+    ~/code/dotfiles/bin/tat
+  fi
+}
 
-          ensure_tmux_is_running
+ensure_tmux_is_running
 
 export PATH="$HOME/code/dotfiles/bin:$PATH"
 
