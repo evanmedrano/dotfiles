@@ -8,7 +8,7 @@ export ZSH="/Users/evanmedrano/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="sunrise"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -128,14 +128,6 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
-# Hides user@hostname info when I'm logged in
-prompt_context(){}
-
-# Dir: current working directory
-prompt_dir() {
-  prompt_segment blue black '%c'
-}
-
 export PATH="$HOME/code/dotfiles/bin:$PATH"
 
-
+source /Users/evanmedrano/code/projects/projects2020/tutorial-projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
