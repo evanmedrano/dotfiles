@@ -78,6 +78,8 @@ Plug 'mustache/vim-mustache-handlebars'
 " =====================================
 " Misc plugins
 " =====================================
+" Colorscheme
+Plug 'NLKNguyen/papercolor-theme'
 " Global replace throughout all files
 Plug 'skwp/greplace.vim'
 " Surround (cs"')
@@ -217,33 +219,41 @@ let NERDTreeShowHidden=1
 " Appearance
 syntax on
 set t_Co=256
-let g:molokai_original=1
 " Shows a line where lines have gone over 80 characters
 set colorcolumn=+1
 " Removes said line from markdown files
 autocmd FileType markdown set colorcolumn=""
-
-colorscheme jellybeans
+" PaperColor settings
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'override': {
+  \         'color03': ['', '208'],
+  \         'color10': ['', '226']
+  \       }
+  \     },
+  \     'default.light': {
+  \       'override': {
+  \         'color03': ['', '208'],
+  \         'color10': ['', '124']
+  \       }
+  \     }
+  \   }
+  \ }
+set background=dark
+colorscheme PaperColor
 
 " =======================================================
-" oblitum/rainbow settings
+" Rainbow bracket settings
 " =======================================================
-" Enables oblitum/rainbow globally (with an advanced config)
 let g:rainbow_active = 1
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+" ====================== [blue, green, purple, red, teal]
+let g:rainbow_ctermfgs = ['33', '2', '5', '1', '6']
 
 " =======================================================
 " Vim airline settings
 " =======================================================
-let g:airline_theme='luna'
-
+let g:airline_theme='papercolor'
 let g:airline_powerline_fonts=1
 
 " air-line
