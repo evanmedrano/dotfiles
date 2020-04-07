@@ -8,7 +8,7 @@ export ZSH="/Users/evanmedrano/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="sunrise"
+ZSH_THEME="smt"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,6 +98,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Rails aliases
+alias rc="rails console"
+alias rcs="rails console --sandbox"
+alias rd="rails destroy"
+alias rdb="rails dbconsole"
+alias rdbm="rails db:migrate"
+alias rdbr="rails db:rollback"
+alias rg="rails generate"
+alias rgm="rails generate migration"
+alias rp="rails plugin"
+alias ru="rails runner"
+alias rs="rails server"
+alias rsd="rails server --debugger"
+alias rsp="rails server --port"
+
+
 # Git flow aliases
 alias gfi="git flow init"
 alias gfs="git flow feature start"
@@ -128,6 +144,14 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
+# Change prompt display
+PROMPT='
+%{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info)
+%{$fg[red]%}弱肉強食%{$reset_color%} $(prompt_char) %# '
+
+RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
+
+
 export PATH="$HOME/code/dotfiles/bin:$PATH"
 
-source /Users/evanmedrano/code/projects/projects2020/tutorial-projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/evanmedrano/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
