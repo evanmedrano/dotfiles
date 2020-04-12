@@ -99,6 +99,26 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Rails aliases
+
+# Prepending this ruby option to hide warnings from Ruby 2.7.1
+# Captialized aliases utilize the ruby option and the lowercase variants do not
+RUBY_OPTION='RUBYOPT="-W:no-deprecated -W:no-experimental"'
+
+alias RC="$RUBY_OPTION rails console"
+alias RCS="$RUBY_OPTION rails console --sandbox"
+alias RD="$RUBY_OPTION rails destroy"
+alias RDB="$RUBY_OPTION rails dbconsole"
+alias RDBM="$RUBY_OPTION rails db:migrate"
+alias RDBR="$RUBY_OPTION rails db:rollback"
+alias RG="$RUBY_OPTION rails generate"
+alias RGM="$RUBY_OPTION rails generate migration"
+alias RN="$RUBY_OPTION rails new"
+alias RP="$RUBY_OPTION rails plugin"
+alias RS="$RUBY_OPTION rails server"
+alias RSD="$RUBY_OPTION rails server --debugger"
+alias RSP="$RUBY_OPTION rails server --port"
+alias RU="$RUBY_OPTION rails runner"
+
 alias rc="rails console"
 alias rcs="rails console --sandbox"
 alias rd="rails destroy"
@@ -107,17 +127,22 @@ alias rdbm="rails db:migrate"
 alias rdbr="rails db:rollback"
 alias rg="rails generate"
 alias rgm="rails generate migration"
+alias rn="rails new"
 alias rp="rails plugin"
-alias ru="rails runner"
 alias rs="rails server"
 alias rsd="rails server --debugger"
 alias rsp="rails server --port"
-
+alias ru="rails runner"
 
 # Git flow aliases
 alias gfi="git flow init"
 alias gfs="git flow feature start"
 alias gff="git flow feature finish"
+
+# Helpful aliases
+alias tn="terminal-notifier -message 'Finished!'"
+alias v="vim ."
+alias zr="source ~/.zshrc"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -146,12 +171,13 @@ ensure_tmux_is_running
 
 # Change prompt display
 PROMPT='
-%{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info)
-%{$fg[red]%}弱肉強食%{$reset_color%} $(prompt_char) %# '
+%{$FG[201]%}Building dreams in %{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info)
+%{$fg[red]%}不屈%{$reset_color%} $(prompt_char) %# '
 
 RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
 
-
 export PATH="$HOME/code/dotfiles/bin:$PATH"
+
+# Detect Ruby version to export ruby option
 
 source /Users/evanmedrano/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

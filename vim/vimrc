@@ -47,7 +47,7 @@ Plug 'othree/html5.vim'
 " SCSS syntax
 Plug 'cakebaker/scss-syntax.vim'
 " Color highlighter
-Plug 'ap/vim-css-color', { 'for': ['css', 'sass', 'scss'] }
+Plug 'shmargum/vim-sass-colors'
 
 " ======================================
 " Ruby/Rails plugins
@@ -70,16 +70,25 @@ Plug 'tpope/rbenv-ctags'
 Plug 'thoughtbot/vim-rspec'
 
 " =====================================
-" Ember JS plugins
+" JS/TS plugins
 " =====================================
-" Handlebars
-Plug 'mustache/vim-mustache-handlebars'
+" Provides syntax highlighting and improved indentation
+Plug 'pangloss/vim-javascript'
+" Ember tooling within Vim
+Plug 'AndrewRadev/ember_tools.vim'
+" Clean up my code please
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Helpful TypeScript plugin
+Plug 'Quramy/tsuquyomi'
 
 " =====================================
 " Misc plugins
 " =====================================
-" Colorscheme
-Plug 'NLKNguyen/papercolor-theme'
+" Colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+Plug 'owickstrom/vim-colors-paramount'
+
 " Global replace throughout all files
 Plug 'skwp/greplace.vim'
 " Surround (cs"')
@@ -96,8 +105,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 " Vim airline themes
 Plug 'vim-airline/vim-airline-themes'
-" Bracket highlighting
-Plug 'oblitum/rainbow'
 
 call plug#end()
 
@@ -108,8 +115,6 @@ call plug#end()
 let g:user_emmet_leader_key = ','
 " Sets the default terminal for tests to iTerm2
 let g:rspec_runner = "os_x_iterm2"
-" Allows mustache abbreviations
-let g:mustache_abbreviations = 1
 
 " Disable plugins prior to loading pathogen
 exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
@@ -127,6 +132,10 @@ map <Leader>as :call RunAllSpecs()<CR>
 " Automatically open factories.rb
 map <Leader>ff :call OpenFactoryFile()<CR>
 
+" Mapping for vim-unimpaired for easy naviagtion
+nmap < [
+nmap > ]
+
 " Mapping C-s requires control flow to be disabled in the .zshrc/.bashrc file
 
 " Normal mode
@@ -138,9 +147,20 @@ nmap 0 ^
 nmap k gk
 nmap j gj
 
-nmap <leader>vr :sp $MYVIMRC<cr>
-nmap <leader>so :source $MYVIMRC<cr>
+" Plugin mapping
+nmap <leader>p :Prettier<cr>
+nmap <leader>qf :TsuQuickFix<cr>
+
+" Vim assistance
 nmap <leader>hl <esc>:nohls<CR>
+nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>vr :sp $MYVIMRC<cr>
+" Adjust colorschemes
+nmap <leader>cob <esc>:colorscheme gruvbox <bar> :set background=light<CR>
+nmap <leader>con <esc>:colorscheme nord<CR>
+nmap <leader>cow <esc>:colorscheme paramount<CR>
+
+nmap <F6> :NERDTreeToggle<CR>
 
 " Insert mode
 imap <C-s> <esc>:w<CR>
@@ -209,39 +229,21 @@ set textwidth=80
 set scrolloff=10
 " Allows more dynamic matching
 runtime macros/matchit.vim
-" Helps with visual indentation guidelines
-set cursorcolumn
-set cursorline
 
 " Show dot files in NERDtree
 let NERDTreeShowHidden=1
 
 " Appearance
-syntax on
 set t_Co=256
+syntax on
 " Shows a line where lines have gone over 80 characters
 set colorcolumn=+1
 " Removes said line from markdown files
 autocmd FileType markdown set colorcolumn=""
-" PaperColor settings
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'override': {
-  \         'color03': ['', '208'],
-  \         'color10': ['', '226']
-  \       }
-  \     },
-  \     'default.light': {
-  \       'override': {
-  \         'color03': ['', '208'],
-  \         'color10': ['', '124']
-  \       }
-  \     }
-  \   }
-  \ }
-set background=dark
-colorscheme PaperColor
+colorscheme nord
+" Helps with visual indentation guidelines
+set cursorcolumn
+set cursorline
 
 " =======================================================
 " Rainbow bracket settings
@@ -253,7 +255,7 @@ let g:rainbow_ctermfgs = ['33', '2', '5', '1', '6']
 " =======================================================
 " Vim airline settings
 " =======================================================
-let g:airline_theme='papercolor'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts=1
 
 " air-line

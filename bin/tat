@@ -2,7 +2,7 @@
 #
 # Attach or create tmux session named the same as current directory.
 
-session_name="$(basename "$PWD" | tr . -)"
+session_name="$(basename $(dirname "$PWD") / "$PWD" | tr -d '\n')"
 
 session_exists() {
   tmux list-sessions | sed -E 's/:.*$//' | grep -q "^$session_name$"
