@@ -134,12 +134,24 @@ alias rsd="rails server --debugger"
 alias rsp="rails server --port"
 alias ru="rails runner"
 
-# Git flow aliases
+# React aliases
+alias cra="npx create-react-app"
+alias ni="npm install"
+alias nis="npm install --save"
+alias ns="npm start"
+
+# Git aliases
+alias gdp="git diff --patience"
 alias gfi="git flow init"
 alias gfs="git flow feature start"
 alias gff="git flow feature finish"
 
+# Hub shortcuts
+alias hc="hub create"
+alias hcp="hub create -p"
+
 # Helpful aliases
+alias e="exit"
 alias tn="terminal-notifier -message 'Finished!'"
 alias v="vim ."
 alias zr="source ~/.zshrc"
@@ -172,7 +184,7 @@ ensure_tmux_is_running
 # Change prompt display
 PROMPT='
 %{$FG[201]%}Building dreams in %{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info)
-%{$fg[red]%}不屈%{$reset_color%} $(prompt_char) %# '
+%{$fg[red]%}不屈%{$reset_color%} $(prompt_char) 🎬 '
 
 RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
 

@@ -66,22 +66,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 " Index Ruby standard lib with ctags
 Plug 'tpope/rbenv-ctags'
-" RSpec testing shortcuts
-Plug 'thoughtbot/vim-rspec'
 
 " =====================================
 " JS/TS plugins
 " =====================================
 " Provides syntax highlighting and improved indentation
 Plug 'pangloss/vim-javascript'
-" Ember tooling within Vim
-Plug 'AndrewRadev/ember_tools.vim'
 " Clean up my code please
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Helpful TypeScript plugin
 Plug 'Quramy/tsuquyomi'
+" Auto bracket pairing
+Plug 'jiangmiao/auto-pairs'
+" Testing
+Plug 'vim-test/vim-test'
 
-" =====================================
+"" =====================================
 " Misc plugins
 " =====================================
 " Colorschemes
@@ -105,6 +105,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 " Vim airline themes
 Plug 'vim-airline/vim-airline-themes'
+" Easy comments
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -122,12 +124,12 @@ exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
 " =======================================================
 " Custom mapping
 " =======================================================
-
-" RSpec.vim mappings
-map <Leader>ss :call RunCurrentSpecFile()<CR>
-map <Leader>ns :call RunNearestSpec()<CR>
-map <Leader>ls :call RunLastSpec()<CR>
-map <Leader>as :call RunAllSpecs()<CR>
+" Vim-test mappings
+map <Leader>ns :TestNearest<CR>
+map <Leader>fs :TestFile<CR>
+map <Leader>ss :TestSuite<CR>
+map <Leader>ls :TestLast<CR>
+map <silent>vs :TestVisit<CR>
 
 " Automatically open factories.rb
 map <Leader>ff :call OpenFactoryFile()<CR>
@@ -147,9 +149,16 @@ nmap 0 ^
 nmap k gk
 nmap j gj
 
+" Quickly change between single and double quotes
+nmap <leader>dq <esc>:%s/'/"<Cr>
+nmap <leader>sq <esc>:%s/"/'<Cr>
+
 " Plugin mapping
 nmap <leader>p :Prettier<cr>
 nmap <leader>qf :TsuQuickFix<cr>
+nmap <leader>; :CommaOrSemiColon<cr>
+nmap <F9> :AutoCommaOrSemiColonToggle<CR>
+
 
 " Vim assistance
 nmap <leader>hl <esc>:nohls<CR>
@@ -159,6 +168,10 @@ nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>cob <esc>:colorscheme gruvbox <bar> :set background=light<CR>
 nmap <leader>con <esc>:colorscheme nord<CR>
 nmap <leader>cow <esc>:colorscheme paramount<CR>
+" Dirty copy and paste
+nmap <leader>cp <esc>:w /tmp/temp.txt<CR>
+nmap <leader>ps <esc>:r /tmp/temp.txt<CR>
+nmap <leader>dl <esc>:!rm /tmp/temp.txt<CR>
 
 nmap <F6> :NERDTreeToggle<CR>
 
