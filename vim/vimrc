@@ -1,6 +1,7 @@
 " Use the space key as our leader.
 let mapleader = "\<Space>"
 
+
 ""
 "" Janus setup
 ""
@@ -60,8 +61,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 " Configures path to include lib and ext directories
 Plug 'tpope/vim-rake'
-" Configures git superpowers
-Plug 'tpope/vim-fugitive'
 " Quick navigation
 Plug 'tpope/vim-unimpaired'
 " Index Ruby standard lib with ctags
@@ -89,6 +88,8 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'owickstrom/vim-colors-paramount'
 
+" Search tool
+Plug 'mileszs/ack.vim'
 " Global replace throughout all files
 Plug 'skwp/greplace.vim'
 " Surround (cs"')
@@ -107,6 +108,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Easy comments
 Plug 'tpope/vim-commentary'
+" Store vim sessions
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -138,6 +141,10 @@ map <Leader>ff :call OpenFactoryFile()<CR>
 nmap < [
 nmap > ]
 
+" Mapping for vim-obsession
+map <Leader>cs :Obsess<CR>
+map <Leader>ds :Obsess!<CR>
+
 " Mapping C-s requires control flow to be disabled in the .zshrc/.bashrc file
 
 " Normal mode
@@ -165,7 +172,7 @@ nmap <leader>hl <esc>:nohls<CR>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>vr :sp $MYVIMRC<cr>
 " Adjust colorschemes
-nmap <leader>cob <esc>:colorscheme gruvbox <bar> :set background=light<CR>
+nmap <leader>cob <esc>:colorscheme gruvbox <bar> :set background=dark<CR>
 nmap <leader>con <esc>:colorscheme nord<CR>
 nmap <leader>cow <esc>:colorscheme paramount<CR>
 " Dirty copy and paste
@@ -219,8 +226,10 @@ augroup END
 let g:rspec_command = "!clear && bin/rspec {spec}"
 
 function! OpenFactoryFile()
-  if filereadable("test/factories.rb")
-    execute ":sp test/factories.rb"
+  let current_directory = expand("%@%")
+
+  if (current_directory =~ "engines")
+    execute ":sp **/*/spec/factories.rb"
   else
     execute ":sp spec/factories.rb"
   end
@@ -253,17 +262,16 @@ syntax on
 set colorcolumn=+1
 " Removes said line from markdown files
 autocmd FileType markdown set colorcolumn=""
-colorscheme nord
+colorscheme gruvbox
 " Helps with visual indentation guidelines
 set cursorcolumn
 set cursorline
 
 " =======================================================
-" Rainbow bracket settings
+" Greplace settings
 " =======================================================
-let g:rainbow_active = 1
-" ====================== [blue, green, purple, red, teal]
-let g:rainbow_ctermfgs = ['33', '2', '5', '1', '6']
+set grepprg=ack
+let g:grep_cmd_opts = '--noheading'
 
 " =======================================================
 " Vim airline settings
