@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # Captialized aliases utilize the ruby option and the lowercase variants do not
 RUBY_OPTION='RUBYOPT="-W:no-deprecated -W:no-experimental"'
 
+alias BE="$RUBY_OPTION bundle exec"
 alias RC="$RUBY_OPTION rails console"
 alias RCS="$RUBY_OPTION rails console --sandbox"
 alias RD="$RUBY_OPTION rails destroy"
@@ -119,6 +120,7 @@ alias RSD="$RUBY_OPTION rails server --debugger"
 alias RSP="$RUBY_OPTION rails server --port"
 alias RU="$RUBY_OPTION rails runner"
 
+alias be="bundle exec"
 alias rc="rails console"
 alias rcs="rails console --sandbox"
 alias rd="rails destroy"
@@ -129,10 +131,22 @@ alias rg="rails generate"
 alias rgm="rails generate migration"
 alias rn="rails new"
 alias rp="rails plugin"
+alias rrg="rails routes | grep"
 alias rs="rails server"
 alias rsd="rails server --debugger"
 alias rsp="rails server --port"
 alias ru="rails runner"
+
+function rails_template () {
+  rails new $1 -d=postgresql -m ~/code/templates/rails/template.rb
+}
+
+function rails_api_template () {
+  rails new $1 -d=postgresql -m ~/code/templates/rails/api_template.rb
+}
+
+# Quick way to allow the vcr gem to re-record cassettes
+alias vcr="VCR=all ./bin/rspec"
 
 # React aliases
 alias cra="npx create-react-app"
