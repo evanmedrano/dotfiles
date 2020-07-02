@@ -83,11 +83,6 @@ Plug 'vim-test/vim-test'
 "" =====================================
 " Misc plugins
 " =====================================
-" Colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'owickstrom/vim-colors-paramount'
-
 " Search tool
 Plug 'mileszs/ack.vim'
 " Global replace throughout all files
@@ -110,6 +105,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 " Store vim sessions
 Plug 'tpope/vim-obsession'
+" Colorschemes!
+Plug 'flazz/vim-colorschemes'
+" Random colorschemes!
+Plug 'sunuslee/vim-plugin-random-colorscheme-picker'
 
 call plug#end()
 
@@ -175,6 +174,7 @@ nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>cob <esc>:colorscheme gruvbox <bar> :set background=dark<CR>
 nmap <leader>con <esc>:colorscheme nord<CR>
 nmap <leader>cow <esc>:colorscheme paramount<CR>
+nmap <leader>csn <esc>:CSnext<CR>
 " Dirty copy and paste
 nmap <leader>cp <esc>:w /tmp/temp.txt<CR>
 nmap <leader>ps <esc>:r /tmp/temp.txt<CR>
@@ -262,7 +262,7 @@ syntax on
 set colorcolumn=+1
 " Removes said line from markdown files
 autocmd FileType markdown set colorcolumn=""
-colorscheme gruvbox
+colorscheme nord
 " Helps with visual indentation guidelines
 set cursorcolumn
 set cursorline
