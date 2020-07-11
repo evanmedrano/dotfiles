@@ -225,8 +225,9 @@ PROMPT='
 
 RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
 
-export PATH='/bin:/usr/bin:/usr/local/bin:${PATH}'
+export PATH="$HOME/code/dotfiles/bin:$PATH"
 
 # Detect Ruby version to export ruby option
 
+source /Users/evanmedrano/.rvm/scripts/rvm
 source /Users/evanmedrano/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
