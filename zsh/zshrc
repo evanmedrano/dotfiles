@@ -2,32 +2,32 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/evanmedrano/.oh-my-zsh"
+export ZSH='/Users/evanmedrano/.oh-my-zsh'
 
-# Set name of the theme to load --- if set to "random", it will
+# Set name of the theme to load --- if set to 'random', it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="smt"
+ZSH_THEME='smt'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ZSH_THEME_RANDOM_CANDIDATES=( 'robbyrussell' 'agnoster' )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# CASE_SENSITIVE='true'
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# HYPHEN_INSENSITIVE='true'
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE='true'
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# DISABLE_UPDATE_PROMPT='true'
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -36,29 +36,29 @@ ZSH_THEME="smt"
 # DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# DISABLE_LS_COLORS='true'
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE='true'
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION='true'
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS='true'
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY='true'
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# 'mm/dd/yyyy'|'dd.mm.yyyy'|'yyyy-mm-dd'
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+# HIST_STAMPS='mm/dd/yyyy'
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# export MANPATH='/usr/local/man:$MANPATH'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS='-arch x86_64'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -95,8 +95,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig='mate ~/.zshrc'
+# alias ohmyzsh='mate ~/.oh-my-zsh'
 
 # Rails aliases
 
@@ -104,38 +104,40 @@ source $ZSH/oh-my-zsh.sh
 # Captialized aliases utilize the ruby option and the lowercase variants do not
 RUBY_OPTION='RUBYOPT="-W:no-deprecated -W:no-experimental"'
 
-alias BE="$RUBY_OPTION bundle exec"
-alias RC="$RUBY_OPTION rails console"
-alias RCS="$RUBY_OPTION rails console --sandbox"
-alias RD="$RUBY_OPTION rails destroy"
-alias RDB="$RUBY_OPTION rails dbconsole"
-alias RDBM="$RUBY_OPTION rails db:migrate"
-alias RDBR="$RUBY_OPTION rails db:rollback"
-alias RG="$RUBY_OPTION rails generate"
-alias RGM="$RUBY_OPTION rails generate migration"
-alias RN="$RUBY_OPTION rails new"
-alias RP="$RUBY_OPTION rails plugin"
-alias RS="$RUBY_OPTION rails server"
-alias RSD="$RUBY_OPTION rails server --debugger"
-alias RSP="$RUBY_OPTION rails server --port"
-alias RU="$RUBY_OPTION rails runner"
+alias BE='$RUBY_OPTION bundle exec'
+alias RC='$RUBY_OPTION rails console'
+alias RCS='$RUBY_OPTION rails console --sandbox'
+alias RD='$RUBY_OPTION rails destroy'
+alias RDB='$RUBY_OPTION rails dbconsole'
+alias RDBM='$RUBY_OPTION rails db:migrate'
+alias RDBR='$RUBY_OPTION rails db:rollback'
+alias RG='$RUBY_OPTION rails generate'
+alias RGM='$RUBY_OPTION rails generate migration'
+alias RN='$RUBY_OPTION rails new'
+alias RP='$RUBY_OPTION rails plugin'
+alias RS='$RUBY_OPTION rails server'
+alias RSD='$RUBY_OPTION rails server --debugger'
+alias RSP='$RUBY_OPTION rails server --port'
+alias RU='$RUBY_OPTION rails runner'
 
-alias be="bundle exec"
-alias rc="rails console"
-alias rcs="rails console --sandbox"
-alias rd="rails destroy"
-alias rdb="rails dbconsole"
-alias rdbm="rails db:migrate"
-alias rdbr="rails db:rollback"
-alias rg="rails generate"
-alias rgm="rails generate migration"
-alias rn="rails new"
-alias rp="rails plugin"
-alias rrg="rails routes | grep"
-alias rs="rails server"
-alias rsd="rails server --debugger"
-alias rsp="rails server --port"
-alias ru="rails runner"
+alias be='bundle exec'
+alias rc='rails console'
+alias rcs='rails console --sandbox'
+alias rd='rails destroy'
+alias rdb='rails dbconsole'
+alias rdbm='rails db:migrate'
+alias rdbr='rails db:rollback'
+alias rg='rails generate'
+alias rgm='rails generate migration'
+alias rn='rails new'
+alias rp='rails plugin'
+alias rrg='rails routes | grep'
+alias rs='rails server'
+alias rsd='rails server --debugger'
+alias rsp='rails server --port'
+alias ru='rails runner'
+
+# Rails functions
 
 function rails_template () {
   rails new $1 -d=postgresql -m ~/code/templates/rails/template.rb
@@ -146,33 +148,54 @@ function rails_api_template () {
 }
 
 # Quick way to allow the vcr gem to re-record cassettes
-alias vcr="VCR=all ./bin/rspec"
+alias vcr='VCR=all ./bin/rspec'
 
 # React aliases
-alias cra="npx create-react-app"
-alias ni="npm install"
-alias nis="npm install --save"
-alias ns="npm start"
+alias cra='npx create-react-app'
+alias ni='npm install'
+alias nis='npm install --save'
+alias ns='npm start'
+
+# React functions
+function npm_install_@types () {
+  for package in '$@'
+  do
+    npm install '$package' @types/'$package'
+  done
+}
+
+function add_git_commit_msg () {
+  touch .git/hooks/prepare-commit-msg &&
+  cp ~/code/dotfiles/git/prepare-commit-msg .git/hooks/prepare-commit-msg &&
+  chmod +x .git/hooks/prepare-commit-msg
+}
+
+function add_staple_packages () {
+  npm install --save \
+    @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons \
+    @fortawesome/react-fontawesome axios react-router-dom node-sass \
+    bootstrap reactstrap && tn
+}
 
 # Git aliases
-alias gdp="git diff --patience"
-alias gfi="git flow init"
-alias gfs="git flow feature start"
-alias gff="git flow feature finish"
+alias gdp='git diff --patience'
+alias gfi='git flow init'
+alias gfs='git flow feature start'
+alias gff='git flow feature finish'
 
 # Hub shortcuts
-alias hc="hub create"
-alias hcp="hub create -p"
+alias hc='hub create'
+alias hcp='hub create -p'
 
 # Helpful aliases
-alias e="exit"
-alias tn="terminal-notifier -message 'Finished!'"
-alias v="vim ."
-alias zr="source ~/.zshrc"
+alias e='exit'
+alias tn='terminal-notifier -title $(basename '$PWD') -message 'All set!' -sound default'
+alias v='vim .'
+alias zr='source ~/.zshrc'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR='$HOME/.nvm'
+[ -s '$NVM_DIR/nvm.sh' ] && \. '$NVM_DIR/nvm.sh'  # This loads nvm
+[ -s '$NVM_DIR/bash_completion' ] && \. '$NVM_DIR/bash_completion'  # This loads nvm bash_completion
 source /Users/evanmedrano/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Enables ctrl + s to work in vim
@@ -185,7 +208,7 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 # Ensures I'm always running tmux within the shell
-_not_inside_tmux() { [[ -z "$TMUX" ]] }
+_not_inside_tmux() { [[ -z '$TMUX' ]] }
 
 ensure_tmux_is_running() {
   if _not_inside_tmux; then
@@ -202,7 +225,7 @@ PROMPT='
 
 RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
 
-export PATH="$HOME/code/dotfiles/bin:$PATH"
+export PATH='/bin:/usr/bin:/usr/local/bin:${PATH}'
 
 # Detect Ruby version to export ruby option
 
