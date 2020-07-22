@@ -177,6 +177,14 @@ function add_staple_packages () {
     bootstrap reactstrap && tn
 }
 
+function add_staple_packages_with_@types () {
+  npm install --save \
+    @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons \
+    @fortawesome/react-fontawesome axios react-router-dom node-sass \
+    bootstrap reactstrap @types/react-router-dom @types/node-sass \
+    @types/bootstrap @types/reactstrap @types/react @types/react-dom && tn
+}
+
 # Git aliases
 alias gdp='git diff --patience'
 alias gfi='git flow init'
@@ -220,12 +228,15 @@ ensure_tmux_is_running
 
 # Change prompt display
 PROMPT='
-%{$FG[201]%}Building dreams in %{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info)
-%{$fg[red]%}不屈%{$reset_color%} $(prompt_char) 🎬 '
+%{$fg[red]%}不屈%{$FG[201]%} Building dreams in %{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info) 🎬
+%{$reset_color%}%% '
 
 RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
 
-export PATH="$HOME/code/dotfiles/bin:$PATH"
+export GOPATH=$HOME/code/golib
+export NPMPATH=$HOME/.nvm/versions/node/v10.13.0
+export PATH="$HOME/code/dotfiles/bin:$PATH:$GOPATH/bin:$NPMPATH/bin"
+export GOPATH=$GOPATH:$HOME/code/goworkspace
 
 # Detect Ruby version to export ruby option
 

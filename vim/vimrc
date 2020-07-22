@@ -67,6 +67,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/rbenv-ctags'
 
 " =====================================
+" Go plugins
+" =====================================
+" Provides support for Go
+Plug 'fatih/vim-go'
+
+" =====================================
 " JS/TS plugins
 " =====================================
 " Provides syntax highlighting and improved indentation
@@ -97,7 +103,7 @@ Plug 'tpope/vim-endwise'
 Plug 'mrmargolis/dogmatic.vim'
 " Vim and tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
-" Vim status bar
+" Vim airline
 Plug 'vim-airline/vim-airline'
 " Vim airline themes
 Plug 'vim-airline/vim-airline-themes'
@@ -132,6 +138,11 @@ map <Leader>fs :TestFile<CR>
 map <Leader>ss :TestSuite<CR>
 map <Leader>ls :TestLast<CR>
 map <silent>vs :TestVisit<CR>
+
+" Go command mappings
+map <Leader>gb :GoBuild<CR>
+map <Leader>gi :GoInstall<CR>
+map <Leader>gr :GoRun<CR>
 
 " Automatically open factories.rb
 map <Leader>ff :call OpenFactoryFile()<CR>
@@ -173,7 +184,7 @@ nmap <leader>vr :sp $MYVIMRC<cr>
 " Adjust colorschemes
 nmap <leader>cob <esc>:colorscheme gruvbox <bar> :set background=dark<CR>
 nmap <leader>con <esc>:colorscheme nord<CR>
-nmap <leader>cow <esc>:colorscheme paramount<CR>
+nmap <leader>cow <esc>:colorscheme pride<CR>
 nmap <leader>csn <esc>:CSnext<CR>
 " Dirty copy and paste
 nmap <leader>cp <esc>:w /tmp/temp.txt<CR>
@@ -203,6 +214,12 @@ autocmd VimResized * :wincmd =
 " Zoom a Vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
+
+" ========================================================
+" Go stuff
+" ========================================================
+au BufNewFile,BufRead *.go setlocal noet ts=8 sw=8 sts=8
+let g:go_fmt_command = "goimports"
 
 " ========================================================
 " Ruby stuff
@@ -255,6 +272,9 @@ runtime macros/matchit.vim
 " Show dot files in NERDtree
 let NERDTreeShowHidden=1
 
+" No swap files
+set noswapfile
+
 " Appearance
 set t_Co=256
 syntax on
@@ -276,7 +296,7 @@ let g:grep_cmd_opts = '--noheading'
 " =======================================================
 " Vim airline settings
 " =======================================================
-let g:airline_theme='nord'
+let g:airline_theme='light'
 let g:airline_powerline_fonts=1
 
 " air-line
