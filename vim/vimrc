@@ -272,6 +272,12 @@ function! OpenFactoryFile()
 endfunction
 
 " =======================================================
+" Prettier settings
+" =======================================================
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+" =======================================================
 " Vim settings
 " =======================================================
 " assume the /g flag on :s substitutions to replace all matches

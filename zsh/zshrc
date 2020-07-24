@@ -8,7 +8,8 @@ export ZSH='/Users/evanmedrano/.oh-my-zsh'
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME='smt'
+ZSH_THEME=random
+# ZSH_THEME='kolo'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +69,9 @@ ZSH_THEME='smt'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions)
+# Adjust the color of autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dfffdf"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -157,11 +160,13 @@ alias nis='npm install --save'
 alias ns='npm start'
 
 # React functions
-function npm_install_@types () {
-  for package in '$@'
-  do
-    npm install '$package' @types/'$package'
-  done
+function react_template () {
+  cra $1 && cd $1 && add_git_commit_msg && add_staple_packages
+}
+
+function react_typescript_template () {
+  cra $1 --template typescript && cd $1 && add_git_commit_msg && \
+    add_staple_packages_with_@types
 }
 
 function add_git_commit_msg () {
@@ -183,6 +188,13 @@ function add_staple_packages_with_@types () {
     @fortawesome/react-fontawesome axios react-router-dom node-sass \
     bootstrap reactstrap @types/react-router-dom @types/node-sass \
     @types/bootstrap @types/reactstrap @types/react @types/react-dom && tn
+}
+
+function npm_install_@types () {
+  for package in '$@'
+  do
+    npm install '$package' @types/'$package'
+  done
 }
 
 # Git aliases
@@ -227,11 +239,11 @@ ensure_tmux_is_running() {
 ensure_tmux_is_running
 
 # Change prompt display
-PROMPT='
-%{$fg[red]%}不屈%{$FG[201]%} Building dreams in %{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info) 🎬
-%{$reset_color%}%% '
+# PROMPT='
+# %{$fg[red]%}不屈%{$FG[201]%} Building dreams in %{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info) 🎬
+# %{$reset_color%}%% '
 
-RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
+# RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
 
 export GOPATH=$HOME/code/golib
 export NPMPATH=$HOME/.nvm/versions/node/v10.13.0
