@@ -81,14 +81,18 @@ Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Helpful TypeScript plugin
 Plug 'Quramy/tsuquyomi'
+" TypeScript syntax highlighter
+Plug 'HerringtonDarkholme/yats.vim'
 " Auto bracket pairing
 Plug 'jiangmiao/auto-pairs'
-" Testing
-Plug 'vim-test/vim-test'
 
 "" =====================================
 " Misc plugins
 " =====================================
+" Testing
+Plug 'vim-test/vim-test'
+" Make vim VSCode smart
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Search tool
 Plug 'mileszs/ack.vim'
 " Global replace throughout all files
@@ -183,8 +187,9 @@ nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>vr :sp $MYVIMRC<cr>
 " Adjust colorschemes
 nmap <leader>cob <esc>:colorscheme gruvbox <bar> :set background=dark<CR>
-nmap <leader>con <esc>:colorscheme nord<CR>
-nmap <leader>cow <esc>:colorscheme pride<CR>
+nmap <leader>coh <esc>:colorscheme colorzone<CR>
+nmap <leader>con <esc>:colorscheme neonwave<CR>
+nmap <leader>cow <esc>:colorscheme behelit<CR>
 nmap <leader>csn <esc>:CSnext<CR>
 " Dirty copy and paste
 nmap <leader>cp <esc>:w /tmp/temp.txt<CR>
@@ -220,6 +225,20 @@ nnoremap <leader>= :wincmd =<cr>
 " ========================================================
 au BufNewFile,BufRead *.go setlocal noet ts=8 sw=8 sts=8
 let g:go_fmt_command = "goimports"
+
+" ========================================================
+" coc.nvim stuff
+" ========================================================
+" Use K to show documentation in preview window
+ nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+ function! s:show_documentation()
+   if (index(['vim','help'], &filetype) >= 0)
+     execute 'h '.expand('<cword>')
+   else
+     call CocAction('doHover')
+   endif
+ endfunction
 
 " ========================================================
 " Ruby stuff
@@ -268,6 +287,8 @@ set textwidth=80
 set scrolloff=10
 " Allows more dynamic matching
 runtime macros/matchit.vim
+
+set hidden
 
 " Show dot files in NERDtree
 let NERDTreeShowHidden=1
