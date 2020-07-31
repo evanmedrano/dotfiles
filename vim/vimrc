@@ -103,8 +103,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 " Adds end automatically to def,if,do,etc
 Plug 'tpope/vim-endwise'
-" Disable arrow keys and shows how often I try to use them
-Plug 'mrmargolis/dogmatic.vim'
 " Vim and tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
 " Vim airline
@@ -187,9 +185,9 @@ nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>vr :sp $MYVIMRC<cr>
 " Adjust colorschemes
 nmap <leader>cob <esc>:colorscheme vice<CR>
-nmap <leader>coh <esc>:colorscheme colorzone<CR>
+nmap <leader>coh <esc>:colorscheme unicon<CR>
 nmap <leader>con <esc>:colorscheme neonwave<CR>
-nmap <leader>cow <esc>:colorscheme behelit<CR>
+nmap <leader>cow <esc>:colorscheme adaryn<CR>
 nmap <leader>csn <esc>:CSnext<CR>
 " Dirty copy and paste
 nmap <leader>cp <esc>:w /tmp/temp.txt<CR>
@@ -295,6 +293,8 @@ set scrolloff=10
 runtime macros/matchit.vim
 
 set hidden
+set re=0
+set encoding=utf8
 
 " Show dot files in NERDtree
 let NERDTreeShowHidden=1
@@ -305,11 +305,11 @@ set noswapfile
 " Appearance
 set t_Co=256
 syntax on
+
 " Shows a line where lines have gone over 80 characters
 set colorcolumn=+1
 " Removes said line from markdown files
 autocmd FileType markdown set colorcolumn=""
-colorscheme nord
 " Helps with visual indentation guidelines
 set cursorcolumn
 set cursorline
@@ -323,10 +323,24 @@ let g:grep_cmd_opts = '--noheading'
 " =======================================================
 " Vim airline settings
 " =======================================================
-let g:airline_theme='light'
+" Randomly select vim-airline theme
+function! Randnum(max) abort
+  return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) % a:max
+endfunction
+
+let g:airline_themes_list = ['light', 'deus', 'luna', 'molokai', 'bubblegum',
+                             \ 'simple', 'sol', 'violet', 'tomorrow', 'badwolf']
+let g:randomn = Randnum(len(g:airline_themes_list))
+
+if expand("%:t") == '.vimrc' && expand("%:p:h") ==# expand("~")
+  exec "AirlineTheme " . g:airline_themes_list[g:randomn]
+else
+  let g:airline_theme = g:airline_themes_list[g:randomn]
+endif
+
 let g:airline_powerline_fonts=1
 
-" air-line
+" airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif

@@ -143,11 +143,11 @@ alias ru='rails runner'
 # Rails functions
 
 function rails_template () {
-  rails new $1 -d=postgresql -m ~/code/templates/rails/template.rb
+  rails new $1 -d=postgresql -m ~/code/templates/rails/template.rb && tn
 }
 
 function rails_api_template () {
-  rails new $1 -d=postgresql -m ~/code/templates/rails/api_template.rb --api
+  rails new $1 -d=postgresql -m ~/code/templates/rails/api_template.rb --api && tn
 }
 
 # Quick way to allow the vcr gem to re-record cassettes
@@ -165,8 +165,12 @@ function react_template () {
 }
 
 function react_typescript_template () {
-  cra $1 --template typescript && cd $1 && add_git_commit_msg && \
-    add_staple_packages_with_@types
+  cra $1 --typescript && cd $1 && add_git_commit_msg && \
+    add_staple_packages_with_@types && tn
+}
+
+function crat () {
+  cra $1 --typescript
 }
 
 function add_git_commit_msg () {
@@ -191,10 +195,15 @@ function add_staple_packages_with_@types () {
 }
 
 function npm_install_@types () {
-  for package in '$@'
+  for package in $@
   do
-    npm install '$package' @types/'$package'
+    npm install $package @types/$package && tn
   done
+}
+
+# expo aliases
+function expo_init () {
+  expo init $1 --npm && tn
 }
 
 # Git aliases
@@ -209,7 +218,7 @@ alias hcp='hub create -p'
 
 # Helpful aliases
 alias e='exit'
-alias tn='terminal-notifier -title $(basename '$PWD') -message 'All set!' -sound default'
+alias tn='terminal-notifier -title $(basename '$PWD') -message 'Finished!' -sound default'
 alias v='vim .'
 alias zr='source ~/.zshrc'
 
