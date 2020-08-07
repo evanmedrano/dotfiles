@@ -143,11 +143,11 @@ alias ru='rails runner'
 # Rails functions
 
 function rails_template () {
-  rails new $1 -d=postgresql -m ~/code/templates/rails/template.rb && tn
+  rails new $1 -d=postgresql -m ~/code/templates/rails/template.rb
 }
 
 function rails_api_template () {
-  rails new $1 -d=postgresql -m ~/code/templates/rails/api_template.rb --api && tn
+  rails new $1 -d=postgresql -m ~/code/templates/rails/api_template.rb --api
 }
 
 # Quick way to allow the vcr gem to re-record cassettes
