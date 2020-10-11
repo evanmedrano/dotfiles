@@ -183,9 +183,9 @@ nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>vr :sp $MYVIMRC<cr>
 " Adjust colorschemes
 nmap <leader>cob <esc>:colorscheme vice<CR>
-nmap <leader>coh <esc>:colorscheme unicon<CR>
+nmap <leader>coh <esc>:colorscheme coda<CR>
 nmap <leader>con <esc>:colorscheme neonwave<CR>
-nmap <leader>cow <esc>:colorscheme adaryn<CR>
+nmap <leader>cow <esc>:colorscheme molokai<CR>
 nmap <leader>csn <esc>:CSnext<CR>
 " Dirty copy and paste
 nmap <leader>cp <esc>:w /tmp/temp.txt<CR>

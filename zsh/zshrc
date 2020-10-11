@@ -216,6 +216,9 @@ alias gff='git flow feature finish'
 alias hc='hub create'
 alias hcp='hub create -p'
 
+# Rubo aliases
+alias rubo='rubocop'
+
 # Helpful aliases
 alias e='exit'
 alias tn='terminal-notifier -title $(basename '$PWD') -message 'Finished!' -sound default'
@@ -247,17 +250,8 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
-# Change prompt display
-# PROMPT='
-# %{$fg[red]%}不屈%{$FG[201]%} Building dreams in %{$FG[002]%}%2~%{$FG[201]%}$(git_prompt_info) 🎬
-# %{$reset_color%}%% '
-
-# RPROMPT='${return_status}$(git_time_since_commit)%{$reset_color%}'
-
-export GOPATH=$HOME/code/golib
 export NPMPATH=$HOME/.nvm/versions/node/v10.13.0
-export PATH="$HOME/code/dotfiles/bin:$PATH:$GOPATH/bin:$NPMPATH/bin"
-export GOPATH=$GOPATH:$HOME/code/goworkspace
+export PATH="$HOME/code/dotfiles/bin:$PATH/bin:$NPMPATH/bin"
 
 # Detect Ruby version to export ruby option
 
