@@ -116,7 +116,7 @@ Plug 'flazz/vim-colorschemes'
 " Random colorschemes!
 Plug 'sunuslee/vim-plugin-random-colorscheme-picker'
 " Git blame
-Plug 'APZelos/blamer.nvim'
+" Plug 'APZelos/blamer.nvim'
 
 call plug#end()
 

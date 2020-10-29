@@ -225,6 +225,24 @@ alias tn='terminal-notifier -title $(basename '$PWD') -message 'Finished!' -soun
 alias v='vim .'
 alias zr='source ~/.zshrc'
 
+function fixDisplay () {
+  local CURRENT=$(currentDisplay)
+  local EXPECTED=$(expectedDisplay)
+
+  if [[ $CURRENT != *"$EXPECTED"* ]]
+  then
+    displayplacer "id:7FC46418-C605-D58C-20B1-49A71C585115 res:1920x1080 hz:60 color_depth:4 scaling:off origin:(0,0) degree:0" "id:E5E926FF-FF83-8251-E163-D61F52FAA3E5 res:1280x800 color_depth:4 scaling:on origin:(-1280,156) degree:0" "id:3CD3EF4E-6E25-0C4B-9920-D60845F62851 res:1080x1920 hz:60 color_depth:4 scaling:off origin:(1920,-428) degree:90"
+  fi
+}
+
+function currentDisplay () {
+  displayplacer list | tail -1
+}
+
+function expectedDisplay () {
+  echo "id:3CD3EF4E-6E25-0C4B-9920-D60845F62851 res:1080x1920 hz:60 color_depth:4 scaling:off origin:(1920,-428) degree:90"
+}
+
 export NVM_DIR='$HOME/.nvm'
 [ -s '$NVM_DIR/nvm.sh' ] && \. '$NVM_DIR/nvm.sh'  # This loads nvm
 [ -s '$NVM_DIR/bash_completion' ] && \. '$NVM_DIR/bash_completion'  # This loads nvm bash_completion
