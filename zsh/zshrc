@@ -211,6 +211,7 @@ alias gdp='git diff --patience'
 alias gfi='git flow init'
 alias gfs='git flow feature start'
 alias gff='git flow feature finish'
+alias gm='git merge --no-ff'
 
 # Hub shortcuts
 alias hc='hub create'
@@ -273,5 +274,7 @@ export PATH="$HOME/code/dotfiles/bin:$PATH/bin:$NPMPATH/bin"
 
 # Detect Ruby version to export ruby option
 
-source /Users/evanmedrano/.rvm/scripts/rvm
 source /Users/evanmedrano/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
